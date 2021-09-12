@@ -1,23 +1,31 @@
 .services {
   margin-top: 50px;
   padding: 30px;
+
   div[class*='ant-row'] {
     padding: 70px;
   }
+
   .padding {
     padding: 20px;
 
     .card {
       box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-
       width: 100% !important;
+
+      &.active {
+        transform: scale(1.1);
+      }
     }
   }
+
   .center {
     text-align: center;
+
     h1 {
       font-weight: 900;
     }
+
     h3 {
       opacity: 0.8;
     }

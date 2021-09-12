@@ -1,14 +1,15 @@
 import React from 'react';
 import SVG from 'react-inlinesvg';
+import cx from 'classnames';
 import { Button, Card, Popover, Row, Col } from 'antd';
 
 import styles from './services.less';
 
 const Services = () => {
   const items = [
-    { title: 'UX/UI Design', icon: '' },
-    { title: 'Front-End Developer' },
-    { title: 'Branding Design' },
+    { title: 'UX/UI Design', icon: 'layout-line.svg' },
+    { title: 'Front-End Developer', icon: 'code.svg' },
+    { title: 'Branding Design', icon: 'pencil-line' },
   ];
 
   const content = (
@@ -18,6 +19,8 @@ const Services = () => {
     </div>
   );
 
+  const selectedCardIndex = 1;
+
   return (
     <div className={styles.services}>
       <div className={styles.center}>
@@ -25,12 +28,19 @@ const Services = () => {
         <h3> What i offer</h3>
       </div>
       <Row>
-        {items.map((value) => {
+        {items.map((value, index) => {
           return (
             <Col className={styles.padding} span={8}>
               <Card
-                className={styles.card}
-                title={value.title}
+                className={cx(styles.card, {
+                  [styles.active]: index === selectedCardIndex,
+                })}
+                title={
+                  <>
+                    <SVG src={`/src/assets/svgs/${value.icon}`} />
+                    {value.title}
+                  </>
+                }
                 extra={
                   <Popover content={content} title="Front-End Developer" trigger="click">
                     <Button>View More</Button>
