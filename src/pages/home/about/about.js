@@ -4,7 +4,7 @@ import { DownloadOutlined } from '@ant-design/icons';
 import styles from './about.less';
 
 const About = () => (
-  <Row>
+  <Row className={styles.about}>
     <Col span={24} className={styles.textCenter}>
       {' '}
       <h1>AboutMe </h1>

@@ -1,16 +1,13 @@
 import { ArrowRightOutlined } from '@ant-design/icons';
-import {
-  Carousel, Row, Col, Radio,
-} from 'antd';
+import { Carousel, Row, Col, Radio } from 'antd';
 import React from 'react';
-import Testimonial from './testimonial/testimonial';
-import styles from './slider.less';
+import styles from './portfolio.less';
 
-const Slider = () => {
+const Portfolio = () => {
   const items = [{ title: 'Modern Web' }, { title: 'Design Web' }, { title: 'UX UI' }];
 
   return (
-    <>
+    <div className={styles.portfolio}>
       <div className={styles.textCenter}>
         <h1>Portfolio</h1>
         <h3> Most recent work </h3>
@@ -42,9 +39,8 @@ const Slider = () => {
           );
         })}
       </Carousel>
-      <Testimonial />
-    </>
+    </div>
   );
 };
 
-export default Slider;
+export default Portfolio;

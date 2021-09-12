@@ -1,41 +1,41 @@
-import React, { useState } from 'react';
+import React from 'react';
 import SVG from 'react-inlinesvg';
-import {
-  Button, Card, Popover, Row, Col,
-} from 'antd';
+import { Button, Card, Popover, Row, Col } from 'antd';
 
 import styles from './services.less';
 
 const Services = () => {
-  const [item, setItem] = useState([
+  const items = [
     { title: 'UX/UI Design', icon: '' },
     { title: 'Front-End Developer' },
     { title: 'Branding Design' },
-  ]);
+  ];
+
   const content = (
     <div>
       <p>Content</p>
       <p>Content</p>
     </div>
   );
+
   return (
-    <div>
+    <div className={styles.services}>
       <div className={styles.center}>
         <h1>Services</h1>
         <h3> What i offer</h3>
       </div>
       <Row>
-        {item.map((value) => {
+        {items.map((value) => {
           return (
             <Col className={styles.padding} span={8}>
               <Card
                 className={styles.card}
                 title={value.title}
-                extra={(
+                extra={
                   <Popover content={content} title="Front-End Developer" trigger="click">
                     <Button>View More</Button>
                   </Popover>
-                )}
+                }
                 style={{ width: 300 }}
               >
                 <SVG

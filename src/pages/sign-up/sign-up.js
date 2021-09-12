@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import {
-  Input, Tooltip, Checkbox, Button, message,
-} from 'antd';
+import { Input, Tooltip, Checkbox, Button, message } from 'antd';
 import { InfoCircleOutlined, QuestionCircleFilled, UserOutlined } from '@ant-design/icons';
 import { useHistory } from 'react-router-dom';
 
@@ -29,11 +27,11 @@ const SignUp = () => {
           onChange={(event) => setUserName(event.target.value)}
           placeholder="Enter your username"
           prefix={<UserOutlined className="site-form-item-icon" />}
-          suffix={(
+          suffix={
             <Tooltip title="Extra information">
               <InfoCircleOutlined style={{ color: 'rgba(0,0,0,.45)' }} />
             </Tooltip>
-          )}
+          }
         />
 
         <Input
@@ -41,22 +39,22 @@ const SignUp = () => {
           placeholder="Enter your password"
           type="password"
           prefix={<QuestionCircleFilled className="site-form-item-icon" />}
-          suffix={(
+          suffix={
             <Tooltip title="Extra information">
               <InfoCircleOutlined style={{ color: 'rgba(0,0,0,.45)' }} />
             </Tooltip>
-          )}
+          }
         />
         <Input
           onChange={(event) => setEmail(event.target.value)}
           placeholder="Enter your gmail"
           type="gmail"
           prefix={<QuestionCircleFilled className="site-form-item-icon" />}
-          suffix={(
+          suffix={
             <Tooltip title="Extra information">
               <InfoCircleOutlined style={{ color: 'rgba(0,0,0,.45)' }} />
             </Tooltip>
-          )}
+          }
         />
         <div className={styles.checkbox}>
           <Checkbox>I agree to</Checkbox>

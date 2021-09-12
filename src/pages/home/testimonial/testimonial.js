@@ -1,7 +1,5 @@
 import React from 'react';
-import {
-  Carousel, Row, Col, Card,
-} from 'antd';
+import { Carousel, Row, Col, Card } from 'antd';
 import styles from './testimonial.less';
 
 const Testimonial = () => {
@@ -10,10 +8,9 @@ const Testimonial = () => {
       <div className={styles.textCenter}>
         {' '}
         <h1> Testimonial</h1>
-        <h3> My client saying</h3>
-        {' '}
+        <h3> My client saying</h3>{' '}
       </div>
-      <Carousel effect="fade">
+      <Carousel effect="fade" className={styles.carousel}>
         <div className={styles.testimonial}>
           <Row>
             <Col span={6} offset={6}>
@@ -44,7 +41,7 @@ const Testimonial = () => {
             </Col>
             <Col span={6}>
               {' '}
-              <h3>1</h3>
+              <h3>11111111111111</h3>
             </Col>
           </Row>
         </div>

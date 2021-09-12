@@ -6,8 +6,8 @@ import Home from './pages/home/home';
 import SignUp from './pages/sign-up/sign-up';
 import SignIn from './pages/sign-in/sign-in';
 import Services from './pages/home/services/services';
-import Skills from './pages/home/skill/skill';
-import Slider from './pages/home/slider/slider';
+
+import About from './pages/home/about/about';
 import './styles/base.less';
 
 const App = () => (
@@ -20,7 +20,7 @@ const App = () => (
           <Home />
         </Route>
         <Route exact path="/about">
-          <Slider />
+          <About />
         </Route>
         <Route exact path="/signUp">
           <SignUp />

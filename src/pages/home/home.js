@@ -1,16 +1,22 @@
 import React from 'react';
-import { Button } from 'antd';
-import { DownOutlined } from '@ant-design/icons';
 
+import Portfolio from './portfolio/portfolio';
+import Experience from './experience/experience';
+import Services from './services/services';
+import Testimonial from './testimonial/testimonial';
+import Intro from './intro/intro';
+import About from './about/about';
 import styles from './home.less';
 
 const Home = () => (
   <div className={styles.home}>
-    <div className={styles.redContent}>This is home page</div>
-    <Button type="primary" className={styles.clickMe}>
-      Click me
-      <DownOutlined />
-    </Button>
+    <Intro />
+    <About />
+
+    <Experience />
+    <Services />
+    <Portfolio />
+    <Testimonial />
   </div>
 );
 

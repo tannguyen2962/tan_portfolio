@@ -1,10 +1,46 @@
-.textCenter {
+.experience {
+  height: auto;
+
+  .header {
+    margin-top: 50px;
+    padding: 40px;
     text-align: center;
-    h3{
-        opacity: 0.8;
+
+    h3 {
+      opacity: 0.8;
     }
-}
-.center {
-    display: flex;
-    
+  }
+
+  .tabs {
+    .tab-title {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      svg {
+        margin-right: 6px;
+      }
+    }
+
+    .education,
+    .work {
+      .milestone {
+        display: flex;
+        flex-direction: column;
+
+        .content {
+          margin-bottom: 6px;
+        }
+
+        .datetime {
+          display: flex;
+          align-items: center;
+
+          svg {
+            margin-right: 6px;
+          }
+        }
+      }
+    }
+  }
 }

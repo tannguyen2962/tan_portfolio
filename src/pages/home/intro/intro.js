@@ -1,26 +1,23 @@
 import React from 'react';
 import { Row, Col, Button } from 'antd';
-import {
-  FacebookFilled, DownloadOutlined, DownOutlined, CaretDownFilled,
-} from '@ant-design/icons';
+import { DownloadOutlined, DownOutlined, CaretDownFilled } from '@ant-design/icons';
+import SVG from 'react-inlinesvg';
 import styles from './intro.less';
 
 const Intro = () => (
   <div className={styles.intro}>
     <Row>
       <Col className={styles.four} span={6}>
-        <FacebookFilled />
-        <FacebookFilled />
-        <FacebookFilled />
+        <SVG src="/src/assets/svgs/facebook.svg" width="30px" height="30px" />
+        <SVG src="/src/assets/svgs/github.svg" />
+        <SVG src="/src/assets/svgs/mail.svg" />
       </Col>
       <Col className={styles.eight} span={8}>
         <h1>Hi, I am Tan Nguyen</h1>
         <h3>Front-End Developer</h3>
         <p>Semantic vector graphics. Before use icons</p>
         <Button className={styles.button} type="primary" icon={<DownloadOutlined />}>
-          Download
-          {' '}
-          <DownOutlined />
+          Contact Me <DownOutlined />
         </Button>
       </Col>
       <Col span={10}>

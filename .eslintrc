@@ -1,6 +1,6 @@
 {
   "parser": "babel-eslint",
-  "extends": ["airbnb", "airbnb/hooks", "prettier/prettier"],
+  "extends": ["airbnb", "airbnb/hooks", "prettier"],
   "plugins": ["prettier"],
   "parserOptions": {
     "ecmaVersion": 2015,
@@ -18,9 +18,9 @@
   "rules": {
     "arrow-body-style": "off",
     "import/no-extraneous-dependencies": "off",
-    "import/no-unresolved": "off",
     "import/prefer-default-export": "off",
     "max-lines": ["error", { "max": 800, "skipBlankLines": true }],
+    "prettier/prettier": "error",
     "react/forbid-prop-types": "off",
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "react/jsx-first-prop-new-line": [1, "multiline"],
