@@ -6,6 +6,8 @@ import Home from './pages/home/home';
 import SignUp from './pages/sign-up/sign-up';
 import SignIn from './pages/sign-in/sign-in';
 import Services from './pages/home/services/services';
+import SKills from './pages/home/skill/skill';
+import Footer from './pages/home/footer/footer';
 
 import About from './pages/home/about/about';
 import './styles/base.less';
@@ -20,7 +22,7 @@ const App = () => (
           <Home />
         </Route>
         <Route exact path="/about">
-          <About />
+          <Footer />
         </Route>
         <Route exact path="/signUp">
           <SignUp />

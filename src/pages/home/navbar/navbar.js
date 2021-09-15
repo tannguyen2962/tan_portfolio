@@ -7,7 +7,7 @@ import styles from './navbar.less';
 
 const Navbar = () => {
   return (
-    <div className={styles.navbar}>
+    <div className={styles.navbar} id="navbar">
       <span className={styles.logo}>Portfolio</span>
       <div className={styles.navRight}>
         <ul className={styles.ul}>

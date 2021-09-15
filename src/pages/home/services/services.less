@@ -14,7 +14,31 @@
       width: 100% !important;
 
       &.active {
-        transform: scale(1.1);
+        transform: scale(1.13);
+      }
+
+      div[class*='ant-card-head-title'] {
+        display: flex;
+        SVG {
+          margin-right: 6px;
+        }
+      }
+      .contentPricing {
+        line-height: 30px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        font-weight: 500;
+        font-size: 14px;
+        h2 {
+          font-size: 28px;
+        }
+        button {
+          margin-top: 15px;
+          color: white;
+          background-color: #1890ff;
+        }
       }
     }
   }

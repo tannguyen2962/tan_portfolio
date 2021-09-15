@@ -7,9 +7,25 @@ import styles from './services.less';
 
 const Services = () => {
   const items = [
-    { title: 'UX/UI Design', icon: 'layout-line.svg' },
-    { title: 'Front-End Developer', icon: 'code.svg' },
-    { title: 'Branding Design', icon: 'pencil-line' },
+    {
+      title: 'UX/UI Design',
+      icon: 'layout-line.svg',
+      description1: 'Photoshop',
+      description2: 'Adobe Illustrator',
+    },
+    {
+      title: 'Front-End Developer',
+      icon: 'code.svg',
+      description1: 'React JS',
+      description2: 'Bootstrap',
+      description3: 'HTML5/CSS3',
+    },
+    {
+      title: 'Branding Design',
+      icon: 'pencil-line.svg',
+      description1: 'Identity',
+      description2: 'Ideas',
+    },
   ];
 
   const content = (
@@ -46,17 +62,19 @@ const Services = () => {
                     <Button>View More</Button>
                   </Popover>
                 }
-                style={{ width: 300 }}
+                style={{ width: 500 }}
               >
-                <SVG
-                  src="/src/assets/svgs/calendar.svg"
-                  width="50px"
-                  height="50px"
-                  fill="#c91f37"
-                />
-                <p>Card content</p>
-                <p>Card content</p>
-                <p>Card content</p>
+                <div className={styles.contentPricing}>
+                  <h2>50$ / 1 hour </h2>
+
+                  <span> I am available for full time</span>
+                  <span> {value.description1} </span>
+                  <span>{value.description2}</span>
+                  <span>{value.description3}</span>
+                  <Button type="@color-primary" shape="round">
+                    <p> Buy</p>
+                  </Button>
+                </div>
               </Card>
             </Col>
           );

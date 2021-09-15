@@ -15,7 +15,7 @@ const Intro = () => {
   };
 
   return (
-    <div className={styles.intro}>
+    <div className={styles.intro} id="intro">
       <Row>
         <Col className={styles.four} span={6}>
           <SVG src="/src/assets/svgs/facebook.svg" width="30px" height="30px" />
@@ -31,7 +31,9 @@ const Intro = () => {
           </Button>
         </Col>
         <Col span={10}>
-          <div className={styles.ten}>{/* <img src="https://picsum.photos/300" /> */}</div>
+          <div className={styles.ten}>
+            <img src="/src/assets/images/tanne.jpg" width="300px" height="300px" alt="" />
+          </div>
         </Col>
       </Row>
       <Row>

@@ -4,19 +4,27 @@
   }
   text-align: center;
 }
+
 .about-left {
+  display: flex;
+  justify-content: center;
   padding: 20px;
-  width: 300px;
-  height: 300px;
-  background-size: cover;
-  background-position: center;
-  background: url('https://picsum.photos/400');
-  background-repeat: no-repeat;
+
+  .image {
+    width: 300px;
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    background: url('https://picsum.photos/400');
+    background-repeat: no-repeat;
+  }
 }
 
 .about {
   margin-top: 20px;
+  margin-bottom: 40px;
   padding: 40px;
+
   .about-right {
     font-size: 18px;
     display: flex;
@@ -26,6 +34,7 @@
 
     .flex {
       display: flex;
+
       .experience {
         span {
           font-size: 18px;
@@ -35,6 +44,7 @@
         width: 120px;
       }
     }
+
     button {
       height: 40px;
     }
