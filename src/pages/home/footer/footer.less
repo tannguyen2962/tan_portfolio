@@ -1,11 +1,27 @@
 .footer {
-  background-color: #5a85ff;
+  background-color: black;
   padding: 50px;
   .rowElement {
     padding: 20px;
     .colElement {
       display: flex;
       justify-content: center;
+      svg {
+        padding: 5px;
+        width: 35px;
+        height: 35px;
+        fill: #fbaa33;
+      }
+      a:hover {
+        svg {
+          transition: 1s;
+          border-radius: 50%;
+          border: 1px solid white;
+          background-color: #fbaa33;
+          fill: white;
+        }
+      }
+
       .textElement {
         width: 100%;
         margin-top: 20px;
@@ -16,10 +32,12 @@
         justify-content: center;
         line-height: 20px;
         h1 {
+          color: #fbaa33;
           font-weight: 1000;
           font-size: 30px;
         }
         h3 {
+          color: #fbaa33;
           opacity: 0.8;
         }
       }
@@ -29,6 +47,9 @@
         font-size: 18px;
         display: flex;
         justify-content: space-between;
+        span {
+          color: #fbaa33;
+        }
       }
       SVG {
         margin: 10px 10px;
@@ -38,5 +59,8 @@
   .textFooter {
     margin-top: 30px;
     text-align: center;
+    h3 {
+      color: #fbaa33;
+    }
   }
 }

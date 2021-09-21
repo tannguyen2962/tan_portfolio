@@ -6,39 +6,44 @@ import SubMenu from 'antd/lib/menu/SubMenu';
 import styles from './skills.less';
 
 const Skills = () => {
-  const item = [
+  const skills = [
     {
       title: 'UX UI',
-      icon1: 'image.svg',
+      icon1: 'photoshop.svg',
       option1: 'Photoshop',
-      icon2: 'image.svg',
-      option2: 'Adobe ',
+      icon2: 'premier.svg',
+      option2: 'Adobe Premier ',
+      icon3: 'illustrator.svg',
+      option3: 'Adobe Illustrator ',
     },
     {
       title: 'Front-End Developer',
-      icon1: 'css3.svg',
-      option1: 'HTML',
-      icon2: 'html5.svg',
-      option2: 'CSS',
+      icon1: 'css-3.svg',
+      option1: 'CSS',
+      icon2: 'html.svg',
+      option2: 'HTML',
+      icon3: 'atom.svg',
+      option3: 'React',
     },
     {
-      title: 'Front-End Developer',
-      icon1: 'css3.svg',
-      option1: 'HTML',
-      icon2: 'html5.svg',
-      option2: 'CSS',
+      title: 'Time management',
+      icon1: 'teamwork.svg',
+      option1: 'Organization',
+      icon2: 'prioritize.svg',
+      option2: 'Prioritization',
     },
   ];
+
   return (
-    <div className={styles.skillContent}>
+    <div className={styles.skillContent} id="skills">
       <div className={styles.title}>
         <h1> Skills</h1>
         <h3> My technical level </h3>
       </div>
       <Row className={styles.skills}>
-        {item.map((value) => {
+        {skills.map((value) => {
           return (
-            <Col span={8} className={styles.colElement}>
+            <Col key={value.title} xs={24} md={24} lg={8} xl={8} className={styles.colElement}>
               <Menu
                 style={{ width: 256 }}
                 defaultSelectedKeys={['1']}
@@ -51,14 +56,25 @@ const Skills = () => {
                   title={value.title}
                   className={styles.item}
                 >
-                  <Menu.Item className={styles.selected} key="9">
-                    <SVG src={`src/assets/svgs/${value.icon1} `} />
-                    {value.option1}
+                  <Menu.Item key="9">
+                    <div className={styles.selected}>
+                      <SVG src={`src/assets/svgs/${value.icon1} `} width="30px" height="30px" />
+                      {value.option1}
+                    </div>
                   </Menu.Item>
-                  <Menu.Item className={styles.selected} key="10">
-                    {' '}
-                    <SVG src={`src/assets/svgs/${value.icon2} `} />
-                    {value.option2}
+                  <Menu.Item key="10">
+                    <div className={styles.selected}>
+                      {' '}
+                      <SVG src={`src/assets/svgs/${value.icon2} `} width="30px" height="30px" />
+                      {value.option2}
+                    </div>
+                  </Menu.Item>
+                  <Menu.Item key="10">
+                    <div className={styles.selected}>
+                      {' '}
+                      <SVG src={`src/assets/svgs/${value.icon3} `} width="30px" height="30px" />
+                      {value.option3}
+                    </div>
                   </Menu.Item>
                 </SubMenu>
               </Menu>

@@ -59,6 +59,7 @@
     "eslint-plugin-react": "^7.25.1",
     "eslint-plugin-react-hooks": "^4.2.0",
     "extract-react-intl-messages": "^4.1.1",
+    "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.3.2",
     "husky": "^7.0.2",
     "less": "^4.1.1",
@@ -78,6 +79,7 @@
   "dependencies": {
     "@ant-design/icons": "^4.6.4",
     "antd": "^4.16.13",
+    "axios": "^0.21.4",
     "classnames": "^2.3.1",
     "lodash": "^4.17.21",
     "moment": "^2.29.1",

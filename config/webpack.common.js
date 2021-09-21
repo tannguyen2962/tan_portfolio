@@ -14,6 +14,7 @@ const dotEnv = require('./plugins/dot-env');
 const processJs = require('./rules/process-js');
 const processLessInSrc = require('./rules/process-less-in-src');
 const processLessInAntDesign = require('./rules/process-less-in-antd');
+const processImages = require('./rules/process-images');
 const processSvg = require('./rules/process-svg');
 
 const appPath = require('./app-path.config');
@@ -26,7 +27,13 @@ module.exports = {
     chunkFilename: '[name].[chunkhash:8].chunk.js',
   },
   module: {
-    rules: [processJs(), processLessInSrc(), processLessInAntDesign(), processSvg()],
+    rules: [
+      processJs(),
+      processLessInSrc(),
+      processLessInAntDesign(),
+      processImages(),
+      processSvg(),
+    ],
   },
   plugins: [htmlWebpackPlugin(), miniCssExtractPlugin(), momentLocalesWebpackPlugin(), dotEnv()],
   optimization: {

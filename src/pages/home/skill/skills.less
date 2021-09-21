@@ -3,7 +3,7 @@
   .title {
     text-align: center;
     h1 {
-      font-size: 30px;
+      font-size: 32px;
       font-weight: 900;
     }
   }
@@ -11,9 +11,15 @@
     .colElement {
       display: flex;
       justify-content: center;
+      li[class*='ant-menu-submenu'] {
+        font-size: 16px;
+        color: #ee9714;
+        font-weight: 700;
+      }
     }
     .item {
       .selected {
+        display: flex;
         SVG {
           margin-right: 6px;
         }
@@ -23,6 +29,19 @@
           align-items: center;
         }
       }
+    }
+  }
+}
+
+// responsive
+.skillContent {
+  .skills {
+    .colElement {
+      .screen-lg-down ({
+         ul[class*="ant-menu"]{
+           width: 50vw!important;
+         }
+        });;
     }
   }
 }

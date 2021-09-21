@@ -1,54 +1,103 @@
 .intro {
-  margin-top: 100px;
-  .four {
-    margin: 5px 0px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 40px;
+  background-color: black;
+  height: 100vh;
+  border-bottom: 10px solid #fbaa33;
+  .title {
+    text-align: center;
+    h1 {
+      color: white;
+      font-weight: bold;
+      font-size: 40px;
+    }
+  }
+
+  .social {
+    margin-top: 8vh;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+
     svg {
+      border-radius: 50%;
+      width: 35px;
+      height: 35px;
+      padding: 5px;
+      border: 2px solid white;
+      fill: #fbaa33;
       margin: 5px 0px;
+      &:hover {
+        transition: 1s;
+        border: 3px solid #fbaa33;
+        fill: white;
+        transform: scale(1.1);
+      }
     }
   }
-  .eight {
+
+  .iam {
+    color: #fbaa33;
+    padding-left: 30px;
+    margin-top: 6vh;
+    flex-grow: 1;
     justify-content: center;
     display: flex;
-
-    h1 {
-      font-weight: 800;
+    .name {
+      display: flex;
+      h1 {
+        color: white;
+        font-weight: 800;
+        margin: 0px 3px;
+      }
+      .nameUser {
+        color: #fbaa33;
+        font-size: 32px;
+        font-weight: bold;
+      }
     }
-    h3 {
+
+    h2 {
+      color: #fbaa33;
       opacity: 0.9;
+      font-weight: 700;
     }
     p {
-      color: black;
-      opacity: 0.8;
+      color: white;
     }
-    color: blue;
+
     display: flex;
     flex-direction: column;
     .button {
+      background-color: #fbaa33;
+      border-color: white;
       width: 160px;
       height: 50px;
     }
   }
-  .ten {
+
+  .avatar {
+    margin-right: 10vw;
+    display: flex;
+    justify-content: center;
     position: relative;
-    width: 340px;
-    height: 335px;
-    // background-image: url('../../../assets/images/tanne.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    border-radius: 50%;
-    border: 20px solid rgb(214, 147, 147);
     img {
-      border: 20px solid rgb(221, 172, 172);
+      opacity: 0.9;
+      border: 20px solid #fbaa33;
       border-radius: 50%;
     }
   }
 }
+
 .scroll {
+  text-align: center;
   .link {
     cursor: pointer;
     font-size: 16px;
@@ -57,5 +106,15 @@
     &:hover {
       color: black;
     }
+  }
+}
+
+// responsive
+
+.intro {
+  .social {
+    .screen-lg-down ({
+      margin-left: 20px;
+    });;
   }
 }

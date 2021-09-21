@@ -1,4 +1,5 @@
 .home {
+  scroll-behavior: smooth;
   height: 400px;
 
   .red-content {
@@ -6,11 +7,20 @@
   }
 
   .click-me {
-    background-color: @color-blue;
+    background-color: #fbaa33 !important;
   }
   .buttonOnTop {
     position: fixed;
     top: 90%;
     right: 20px;
+    button {
+      border: 1px solid white;
+      background-color: #fbaa33;
+      a {
+        svg {
+          fill: white;
+        }
+      }
+    }
   }
 }

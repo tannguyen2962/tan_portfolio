@@ -16,12 +16,12 @@ const Portfolio = () => {
       <Carousel autoplay dots infinite speed={500} slidesToShow={1} className={styles.carousel}>
         {items.map((value) => {
           return (
-            <div style={{ backgroundColor: 'red' }}>
+            <div key={value.title} style={{ backgroundColor: 'red' }}>
               <Row>
-                <Col className={styles.textLeft} span={6} offset={6}>
+                <Col className={styles.textLeft} xs={24} md={12}>
                   <div className={styles.bgLeft} />
                 </Col>
-                <Col span={6}>
+                <Col xs={24} md={12}>
                   <div className={styles.textRight}>
                     <h2>{value.title}</h2>
                     <span>

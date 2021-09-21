@@ -1,47 +1,73 @@
-.avtive {
-    color:aqua;
-}
 .navbar {
-    padding: 5px 0px;
-    width: 100%;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  position: fixed;
+  padding: 5px 0px;
+  width: 100%;
+  display: flex;
+  color: #fbaa33;
+
+  .logo {
+    color: #fbaa33;
+    font-weight: 600;
+    margin-left: 100px;
+    justify-content: flex-start;
     display: flex;
-    color:black;
-  
-     .logo {  
-         color:black;
-         font-weight: 600;
-         margin-left: 100px;
-        justify-content: flex-start;
-        display: flex;
-        align-items: center;       
-        font-size: 24px;
+    align-items: center;
+    font-size: 24px;
+  }
+  .nav-right {
+    margin-right: 100px;
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .ul {
+    margin: 0;
+    justify-content: space-around;
+    list-style: none;
+    display: flex;
+    padding: 0;
+    li {
+      display: flex;
+      justify-content: space-around;
+      a {
+        font-weight: 700;
+        color: #fbaa33;
+        font-size: 16px;
+        margin: 0px 10px;
+        text-decoration: none;
+      }
     }
-    .nav-right {
-      
-        margin-right: 100px;
-        width: 100%;
-        justify-content: center;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
+  }
+}
+
+// responsive
+
+.navbar {
+  .nav-right {
+    .screen-md-down({
+       margin:0;
+      });
+    .ul {
+      .screen-md-down({
+        display: none;
+      });
     }
-   
-    .ul{
-        margin: 0;
-        justify-content: space-around;
-        list-style: none;
-        display: flex;
-        padding: 0;
-        li{
-            display: flex;
-            justify-content: space-around;
-            a{
-                  color:black;
-                font-size: 18px;
-                margin: 0px 10px;
-                text-decoration: none;
-            }
-        }
-       
+    .menu {
+      display: none;
+      .screen-md-down({
+        position: Fixed;
+        top: 0;
+        right: 0;
+        margin-left: 20px;
+        display: block;
+        z-index: 999;
+      });
     }
+  }
 }

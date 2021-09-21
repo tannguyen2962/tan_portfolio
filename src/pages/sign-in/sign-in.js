@@ -1,67 +1,57 @@
-import React, { useState } from 'react';
-import { Input, Tooltip, Checkbox, Button } from 'antd';
-import { InfoCircleOutlined, QuestionCircleFilled, UserOutlined } from '@ant-design/icons';
+import React from 'react';
+import { Input, Button, Form, message } from 'antd';
 import { useHistory } from 'react-router-dom';
+import axios from 'axios';
 import styles from './sign-in.less';
 
 const SignIn = () => {
   const history = useHistory();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
-  const login = () => {
-    const localEmail = localStorage.getItem('email');
-    const localPassword = localStorage.getItem('password');
-
-    if (email === localEmail && password === localPassword) {
-      alert('login success');
-      history.push('/');
-    } else {
-      alert('login failed');
-    }
-  };
-  const signUp = () => {
+  const toSignUp = () => {
     history.push('/signUp');
+  };
+  const handleSubmit = (value) => {
+    axios.get('https://614337aec8700e00178d01bb.mockapi.io/users').then((response) => {
+      const { email, password } = value;
+
+      const targetUser = response.data.find(
+        (user) => user.email === email && user.password === password
+      );
+
+      if (targetUser) {
+        message.success('success');
+        history.push('/dashboard');
+        localStorage.setItem('targetUser', JSON.stringify(targetUser));
+      } else {
+        message.error('failed');
+      }
+    });
   };
 
   return (
-    <div className={styles.center}>
-      <div className={styles.signIn}>
-        <h2> Hello friends</h2>
-        <Input
-          onChange={(event) => setEmail(event.target.value)}
-          placeholder="Enter your username"
-          prefix={<UserOutlined className="site-form-item-icon" />}
-          suffix={
-            <Tooltip title="Extra information">
-              <InfoCircleOutlined style={{ color: 'rgba(0,0,0,.45)' }} />
-            </Tooltip>
-          }
-        />
-
-        <Input
-          onChange={(event) => setPassword(event.target.value)}
-          placeholder="Enter your password"
-          type="password"
-          prefix={<QuestionCircleFilled className="site-form-item-icon" />}
-          suffix={
-            <Tooltip title="Extra information">
-              <InfoCircleOutlined style={{ color: 'rgba(0,0,0,.45)' }} />
-            </Tooltip>
-          }
-        />
-        <div className={styles.checkbox}>
-          <Checkbox /> I read and agree to{' '}
+    <div className={styles.signIn}>
+      <Form onFinish={handleSubmit} layout="vertical">
+        <div className={styles.form}>
+          <div className={styles.title}>
+            <h1> Sign In</h1>
+          </div>
+          <Form.Item name="email" label="Email" rule={[{ required: true, type: 'email' }]}>
+            <Input />
+          </Form.Item>
+          <Form.Item name="password" label="Password" rule={[{ required: true }]}>
+            <Input.Password />
+          </Form.Item>
+          <Form.Item>
+            <div className={styles.button}>
+              <Button type="primary" htmlType="submit">
+                Sign In
+              </Button>
+              <Button type="primary" onClick={toSignUp}>
+                Sign Up
+              </Button>
+            </div>
+          </Form.Item>
         </div>
-        <div className={styles.button}>
-          <Button onClick={login} type="primary" shape="round">
-            Login
-          </Button>
-          <Button onClick={signUp} type="primary" shape="round">
-            SignUp
-          </Button>
-        </div>
-      </div>
+      </Form>
     </div>
   );
 };

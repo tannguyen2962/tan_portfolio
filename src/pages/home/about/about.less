@@ -1,8 +1,25 @@
-.text-center {
-  h1 {
-    font-weight: 900;
+.about {
+  margin-top: 20px;
+  margin-bottom: 40px;
+  padding: 40px;
+
+  .text-center {
+    .title {
+      display: flex;
+      justify-content: center;
+      h1 {
+        font-size: 32px;
+        font-weight: 900;
+        margin: 0px 5px;
+      }
+      h2 {
+        color: #fbaa33;
+        font-size: 32px;
+        font-weight: 900;
+      }
+    }
+    text-align: center;
   }
-  text-align: center;
 }
 
 .about-left {
@@ -11,7 +28,9 @@
   padding: 20px;
 
   .image {
-    width: 300px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border: 2px solid #fbaa33;
+    width: 400px;
     height: 300px;
     background-size: cover;
     background-position: center;
@@ -20,33 +39,37 @@
   }
 }
 
-.about {
-  margin-top: 20px;
-  margin-bottom: 40px;
-  padding: 40px;
+.aboutRight {
+  text-align: center;
+  align-items: center;
+  margin-top: 10vh;
+  width: 100%;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 5px 10px;
 
-  .about-right {
-    font-size: 18px;
+  .flex {
     display: flex;
-    justify-content: center;
-    flex-direction: column;
-    padding: 5px 10px;
 
-    .flex {
-      display: flex;
-
-      .experience {
-        span {
-          font-size: 18px;
-          font-weight: 900;
+    .experience {
+      span {
+        font-size: 18px;
+        font-weight: 900;
+      }
+      text-align: center;
+      width: 200px;
+      p {
+        h3 {
+          color: #f39a14;
+          font-weight: 700;
         }
-        text-align: center;
-        width: 120px;
       }
     }
+  }
 
-    button {
-      height: 40px;
-    }
+  button {
+    height: 40px;
   }
 }
