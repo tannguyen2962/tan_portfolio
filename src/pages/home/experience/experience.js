@@ -64,10 +64,10 @@ const Experience = () => {
       <TabPane tab={tabTitle} key="2" className={styles.work}>
         <Timeline mode="alternate">
           <Timeline.Item>
-            Create a services site
-            <div className={styles.center}>
+            <p> Create a services site </p>
+            <div className={styles.datetime}>
               <SVG src="/src/assets/svgs/calendar.svg" width="20px" height="20px" fill="#c91f37" />
-              2015-09-01
+              <span> 2015-09-01</span>
             </div>
           </Timeline.Item>
           <Timeline.Item color="green">

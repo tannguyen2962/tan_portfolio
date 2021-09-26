@@ -4,7 +4,11 @@
     text-align: center;
 
     h1 {
+      font-size: 40px;
       font-weight: 900;
+      -webkit-text-stroke-width: 2px;
+      -webkit-text-stroke-color: #fbaa33;
+      color: transparent;
     }
 
     h3 {
@@ -60,11 +64,19 @@
 
       .radio-button {
         border-radius: 10px;
-        background-color: aqua;
+        background-color: black;
         text-align: center;
-        width: 150px;
+        width: 130px;
+
+        &:hover {
+          span {
+            transition: 0.5s;
+            color: white;
+          }
+        }
 
         span {
+          color: #fbaa33;
           text-align: center;
           margin: 0px 5px;
         }

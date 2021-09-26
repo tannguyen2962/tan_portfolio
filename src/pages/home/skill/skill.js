@@ -26,7 +26,7 @@ const Skills = () => {
       option3: 'React',
     },
     {
-      title: 'Time management',
+      title: 'Branding Design',
       icon1: 'teamwork.svg',
       option1: 'Organization',
       icon2: 'prioritize.svg',
@@ -69,7 +69,7 @@ const Skills = () => {
                       {value.option2}
                     </div>
                   </Menu.Item>
-                  <Menu.Item key="10">
+                  <Menu.Item key="11">
                     <div className={styles.selected}>
                       {' '}
                       <SVG src={`src/assets/svgs/${value.icon3} `} width="30px" height="30px" />

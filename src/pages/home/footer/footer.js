@@ -3,15 +3,15 @@ import { Row, Col } from 'antd';
 import SVG from 'react-inlinesvg';
 import styles from './footer.less';
 
-const Footer = () => {
+const Footer = ({ dataUser }) => {
   return (
     <div className={styles.footer} id="contact">
       <Row className={styles.rowElement}>
         <Col xs={24} md={24} lg={8}>
           <div className={styles.colElement}>
             <div className={styles.textElement}>
-              <h1>Tan Nguyen </h1>
-              <h3>Front-End Developer</h3>{' '}
+              <h1>{dataUser.name}</h1>
+              <h3>{dataUser.work}</h3>
             </div>
           </div>
         </Col>

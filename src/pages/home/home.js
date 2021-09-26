@@ -31,7 +31,7 @@ const Home = () => {
         <Experience />
         <Services />
         <Portfolio />
-        <Footer />
+        <Footer dataUser={dataUser} />
         <div className={styles.buttonOnTop}>
           <Button type="primary" shape="circle">
             <a href="#intro">

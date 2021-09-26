@@ -28,27 +28,28 @@ const About = () => (
           <div className={styles.flex}>
             <div className={styles.experience}>
               <span> 04+</span>
-              <p>
+              <div>
                 Years of <h3>Hutech University</h3>
-              </p>
+              </div>
             </div>
             <div className={styles.experience}>
               <span> 06+</span>
-              <p>
+              <div>
                 Months of <h3>Kmin Academy</h3>
-              </p>
+              </div>
             </div>
             <div className={styles.experience}>
               <span> 02+</span>
-              <p>
+              <div>
                 Years <h3> KMS Technology </h3>
-              </p>
+              </div>
             </div>
           </div>
-          <div>
-            {' '}
+          <div className={styles.btnDownload}>
             <Button type="primary" icon={<DownloadOutlined />}>
-              Download
+              <a href="/text.txt" alt="Download">
+                Download
+              </a>
             </Button>
           </div>
         </div>

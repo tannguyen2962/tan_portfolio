@@ -1,5 +1,5 @@
-import React from 'react';
-
+import React, { useState, useEffect } from 'react';
+import cx from 'classnames';
 import { MenuOutlined } from '@ant-design/icons';
 import { Menu } from 'antd';
 import { NavLink } from 'react-router-dom';
@@ -7,8 +7,16 @@ import styles from './navbar.less';
 
 const Navbar = () => {
   const { SubMenu } = Menu;
+  const [isFixed, setIsFixed] = useState(false);
+  useEffect(() => {
+    const onScroll = () => {
+      setIsFixed(window.scrollY > 65);
+    };
+    window.addEventListener('scroll', onScroll);
+  }, []);
+
   return (
-    <div className={styles.navbar} id="navbar">
+    <div className={cx(styles.navbar, { [styles.fixed]: isFixed })} id="navbar">
       <span className={styles.logo}>Portfolio</span>
       <div className={styles.navRight}>
         <ul className={styles.ul}>

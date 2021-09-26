@@ -8,6 +8,9 @@
       display: flex;
       justify-content: center;
       h1 {
+        color: transparent;
+        -webkit-text-stroke-width: 2px;
+        -webkit-text-stroke-color: #1d1c1b;
         font-size: 32px;
         font-weight: 900;
         margin: 0px 5px;
@@ -70,6 +73,29 @@
   }
 
   button {
+    border: 1px solid #fbaa33;
+    background-color: black;
     height: 40px;
+    a {
+      color: white;
+    }
+    &:hover {
+      border: 1px solid white;
+      transition: 1s;
+      background-color: #f3ac41;
+      a {
+        color: black;
+      }
+      span {
+        color: black;
+      }
+    }
   }
 }
+//  responsive
+
+.screen-lg-down ({
+  .flex{
+    flex-direction: column;
+  }
+});; ; ;

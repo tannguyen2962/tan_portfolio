@@ -12,7 +12,7 @@ const DashBoard = () => {
     axios
       .put(`https://614337aec8700e00178d01bb.mockapi.io/users/${targetUser.id}`, value)
       .then(() => {
-        message.success('');
+        message.success('Success');
         history.push('/');
       })
       .catch((error) => {

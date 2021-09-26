@@ -5,6 +5,9 @@
     margin-top: 50px;
     padding: 40px;
     text-align: center;
+    h1 {
+      font-size: 40px;
+    }
 
     h3 {
       opacity: 0.8;
@@ -24,22 +27,21 @@
 
     .education,
     .work {
-      .milestone {
+      .datetime {
         display: flex;
-        flex-direction: column;
+        align-items: center;
 
-        .content {
-          margin-bottom: 6px;
+        svg {
+          margin-right: 6px;
         }
+      }
+    }
+    .milestone {
+      display: flex;
+      flex-direction: column;
 
-        .datetime {
-          display: flex;
-          align-items: center;
-
-          svg {
-            margin-right: 6px;
-          }
-        }
+      .content {
+        margin-bottom: 6px;
       }
     }
   }
