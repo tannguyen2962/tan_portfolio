@@ -33,9 +33,9 @@ const Intro = ({ dataUser }) => {
       <div className={styles.iam}>
         <div className={styles.name}>
           <h1>Hi I am </h1>
-          <h1 className={styles.nameUser}>{dataUser.name}</h1>
+          <h1 className={styles.nameUser}>{dataUser?.name}</h1>
         </div>
-        <h2>{dataUser.work}</h2>
+        <h2>{dataUser?.work}</h2>
         <p>Semantic vector graphics. Before use icons</p>
         <Button className={styles.button} type="primary" icon={<DownloadOutlined />}>
           Contact Me <DownOutlined />

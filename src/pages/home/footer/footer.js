@@ -10,8 +10,8 @@ const Footer = ({ dataUser }) => {
         <Col xs={24} md={24} lg={8}>
           <div className={styles.colElement}>
             <div className={styles.textElement}>
-              <h1>{dataUser.name}</h1>
-              <h3>{dataUser.work}</h3>
+              <h1>{dataUser?.name}</h1>
+              <h3>{dataUser?.work}</h3>
             </div>
           </div>
         </Col>
@@ -39,7 +39,7 @@ const Footer = ({ dataUser }) => {
         </Col>
       </Row>
       <div className={styles.textFooter}>
-        <h3> From MixiGaming With Love</h3>{' '}
+        <h3> From Kmin Academy With Love</h3>{' '}
       </div>
     </div>
   );

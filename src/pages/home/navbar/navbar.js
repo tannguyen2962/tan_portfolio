@@ -8,6 +8,7 @@ import styles from './navbar.less';
 const Navbar = () => {
   const { SubMenu } = Menu;
   const [isFixed, setIsFixed] = useState(false);
+
   useEffect(() => {
     const onScroll = () => {
       setIsFixed(window.scrollY > 65);
