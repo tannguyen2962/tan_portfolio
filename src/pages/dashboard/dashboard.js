@@ -1,23 +1,26 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Input, Button, Form, message } from 'antd';
 import { useHistory } from 'react-router-dom';
-import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { updateUser } from './dashboard.actions';
 import styles from './dashboard.less';
 
 const DashBoard = () => {
   const history = useHistory();
   const targetUser = JSON.parse(localStorage.getItem('targetUser'));
+  const dispatch = useDispatch();
+  const { isLoading, user } = useSelector((state) => state.dashboardReducer);
 
-  const handleSubmit = (value) => {
-    axios
-      .put(`https://614337aec8700e00178d01bb.mockapi.io/users/${targetUser.id}`, value)
-      .then(() => {
-        message.success('Success');
-        history.push('/');
-      })
-      .catch((error) => {
-        message.error(error);
-      });
+  useEffect(() => {
+    if (user) {
+      message.success(`${user.name} has been updated`);
+      history.push('/');
+    }
+  }, [user]);
+
+  const handleSubmit = (formValues) => {
+    dispatch(updateUser(targetUser.id, formValues));
   };
 
   if (!targetUser) {
@@ -48,7 +51,7 @@ const DashBoard = () => {
             <Input />
           </Form.Item>
           <Form.Item>
-            <Button type="primary" htmlType="submit">
+            <Button type="primary" htmlType="submit" loading={isLoading}>
               Submit
             </Button>
           </Form.Item>
