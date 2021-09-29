@@ -1,7 +1,8 @@
-import React from 'react';
-import axios from 'axios';
+import React, { useEffect } from 'react';
 import { Form, Input, Button, message } from 'antd';
 import { useHistory } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { postUser } from './sign-up.action';
 
 import styles from './sign-up.less';
 
@@ -11,16 +12,17 @@ const SignUp = () => {
     history.push('/signIn');
   };
 
+  const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.signUpReducer);
+  useEffect(() => {
+    if (user) {
+      message.success(`${user.fullName} Sign Up Success`);
+      history.push('/signIn');
+    }
+  }, [user]);
+
   const handleSubmit = (values) => {
-    axios
-      .post('https://614337aec8700e00178d01bb.mockapi.io/users', values)
-      .then(() => {
-        message.success('Sign up success');
-        history.push('/signIn');
-      })
-      .catch((error) => {
-        message.error(error);
-      });
+    dispatch(postUser(values));
   };
 
   return (
