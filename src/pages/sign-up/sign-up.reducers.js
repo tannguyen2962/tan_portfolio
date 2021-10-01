@@ -11,16 +11,16 @@ const signUpReducer = (state = initialState, action) => {
         ...state,
       };
     }
+
     case POST_USER_SUCCESS: {
       return {
         ...state,
         user: action.payload,
       };
     }
+
     default:
-      return {
-        state,
-      };
+      return state;
   }
 };
 export default signUpReducer;

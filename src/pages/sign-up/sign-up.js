@@ -14,6 +14,7 @@ const SignUp = () => {
 
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.signUpReducer);
+
   useEffect(() => {
     if (user) {
       message.success(`${user.fullName} Sign Up Success`);

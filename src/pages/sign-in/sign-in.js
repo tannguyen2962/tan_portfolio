@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Input, Button, Form, message } from 'antd';
 import { useHistory } from 'react-router-dom';
-import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
+import { getUsers } from './sign-in.actions';
 import styles from './sign-in.less';
 
 const SignIn = () => {
@@ -9,22 +10,25 @@ const SignIn = () => {
   const toSignUp = () => {
     history.push('/signUp');
   };
+  const dispatch = useDispatch();
+  const { dataUsers } = useSelector((state) => state.signInReducer);
+
+  useEffect(() => {
+    dispatch(getUsers());
+  }, []);
+
   const handleSubmit = (value) => {
-    axios.get('https://614337aec8700e00178d01bb.mockapi.io/users').then((response) => {
-      const { email, password } = value;
+    const { email, password } = value;
 
-      const targetUser = response.data.find(
-        (user) => user.email === email && user.password === password
-      );
+    const targetUser = dataUsers.find((user) => user.email === email && user.password === password);
 
-      if (targetUser) {
-        message.success('success');
-        history.push('/dashboard');
-        localStorage.setItem('targetUser', JSON.stringify(targetUser));
-      } else {
-        message.error('failed');
-      }
-    });
+    if (targetUser) {
+      message.success('success');
+      history.push('/dashboard');
+      localStorage.setItem('targetUser', JSON.stringify(targetUser));
+    } else {
+      message.error('failed');
+    }
   };
 
   return (

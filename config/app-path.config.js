@@ -32,7 +32,7 @@ module.exports = {
    * Public Dir
    */
 
-  publicDir: path.join(rootDir, 'public'),
+  buildDir: path.join(rootDir, 'build'),
 
   /**
    * Source Dir
