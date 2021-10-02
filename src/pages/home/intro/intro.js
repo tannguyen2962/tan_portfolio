@@ -15,7 +15,7 @@ const Intro = ({ dataUser }) => {
   };
 
   const socialNetwork = () => (
-    <Col xs={{ span: 2, order: 1 }} md={{ span: 2, order: 1 }} lg={{ span: 6, order: 1 }}>
+    <Col xs={{ span: 4, order: 1 }} md={{ span: 2, order: 1 }} lg={{ span: 6, order: 1 }}>
       <div className={styles.social}>
         <a href=" https://www.facebook.com/tannnguyen2962" target="_blank">
           <SVG src="/src/assets/svgs/facebook.svg" color="white" />
@@ -45,7 +45,7 @@ const Intro = ({ dataUser }) => {
   );
 
   const avatar = () => (
-    <Col xs={{ span: 22, order: 2 }} md={{ span: 22, order: 2 }} lg={{ span: 10, order: 3 }}>
+    <Col xs={{ span: 20, order: 2 }} md={{ span: 22, order: 2 }} lg={{ span: 10, order: 3 }}>
       <div className={styles.avatar}>
         <img src="/src/assets/images/tanne.jpg" width="300px" height="300px" alt="" />
       </div>
