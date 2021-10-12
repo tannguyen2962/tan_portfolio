@@ -39,7 +39,7 @@ const Footer = ({ dataUser }) => {
         </Col>
       </Row>
       <div className={styles.textFooter}>
-        <h3> From Kmin Academy With Love</h3>{' '}
+        <h3> From Hutech With Love</h3>{' '}
       </div>
     </div>
   );

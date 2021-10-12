@@ -4,7 +4,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url('/src/assets/images/house.jpg');
+  background-image: url('/src/assets/images/background.jpg');
   background-repeat: no-repeat;
   background-size: cover;
 
@@ -13,9 +13,19 @@
       text-align: center;
       h1 {
         font-weight: 900;
+        color: white;
       }
     }
-    background-color: white;
+    div[class*='ant-col'] {
+      label {
+        color: white;
+      }
+    }
+    label[class*='ant-checkbox-wrapper'] {
+      color: white;
+    }
+
+    background-color: transparent;
     box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset,
       rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
     padding: 20px;
@@ -33,13 +43,17 @@
   input {
     height: 30px;
   }
-  .checkbox {
-    margin: 10px 0px;
-  }
   .button {
-    padding: 10px 0px;
+    padding: 20px 0px;
     width: 100%;
     display: flex;
     justify-content: space-around;
   }
+}
+// responsive
+.form {
+  .screen-sm-down({
+    width: auto  !important;
+    height: auto  !important;
+  });
 }

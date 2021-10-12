@@ -4,22 +4,37 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url('https://picsum.photos/3000');
+  background-image: url('/src/assets/images/background.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   .title {
+    padding-bottom: 10px;
     text-align: center;
     h1 {
       font-weight: 900;
+      color: white;
+    }
+  }
+  div[class*='ant-col'] {
+    label {
+      color: white;
     }
   }
   .form {
     border-radius: 10px;
-    background-color: white;
+    background-color: transparent;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     padding: 20px;
     width: 500px;
-    height: 80vh;
+    height: auto;
   }
+}
+
+// responsive
+.form {
+  .screen-md-down({
+    width: auto  !important;
+    height: auto  !important;
+  });
 }
