@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button } from 'antd';
 import SVG from 'react-inlinesvg';
-
 import Navbar from './navbar/navbar';
 import Portfolio from './portfolio/portfolio';
 import Experience from './experience/experience';
