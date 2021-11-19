@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import { Button } from 'antd';
 import SVG from 'react-inlinesvg';
 import Navbar from './navbar/navbar';
@@ -10,29 +11,33 @@ import Footer from './footer/footer';
 import Skills from './skill/skill';
 import Intro from './intro/intro';
 import About from './about/about';
-import { getUser } from './home.actions';
-import styles from './home.less';
+import { getUsers } from './profile.actions';
 
-const Home = () => {
+import styles from './profile.less';
+
+const Profile = () => {
+  const { username } = useParams();
   const dispatch = useDispatch();
-  const homeSelector = useSelector((state) => state.homeReducer);
+  const profileSelector = useSelector((state) => state.profileReducer.users);
+
+  const targetUser = profileSelector?.find((user) => user.username === username);
 
   useEffect(() => {
-    dispatch(getUser(1));
+    dispatch(getUsers());
   }, []);
 
   return (
     <>
-      {homeSelector.isLoading && <h1>Loading....</h1>}
+      {profileSelector?.isLoading && <h1>{username} Loading....</h1>}
       <div className={styles.home}>
         <Navbar />
-        <Intro dataUser={homeSelector.user} />
+        <Intro dataUser={targetUser} />
         <About />
         <Skills />
         <Experience />
         <Services />
         <Portfolio />
-        <Footer dataUser={homeSelector.user} />
+        <Footer dataUser={targetUser} />
         <div className={styles.buttonOnTop}>
           <Button type="primary" shape="circle">
             <a href="#intro">
@@ -45,4 +50,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Profile;

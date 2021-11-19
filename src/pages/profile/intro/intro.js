@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col, Button } from 'antd';
+import { Row, Col, Button, Image } from 'antd';
 import { DownloadOutlined, DownOutlined, CaretDownFilled } from '@ant-design/icons';
 import SVG from 'react-inlinesvg';
 import styles from './intro.less';
@@ -23,7 +23,9 @@ const Intro = ({ dataUser }) => {
         <a href=" https://www.facebook.com/tannnguyen2962" target="_blank">
           <SVG src="/src/assets/svgs/github.svg" />
         </a>
-        <SVG src="/src/assets/svgs/mail.svg" />
+        <a href=" https://tannguyen2962@gmail.com" target="_blank">
+          <SVG src="/src/assets/svgs/mail.svg" />
+        </a>
       </div>
     </Col>
   );
@@ -47,7 +49,7 @@ const Intro = ({ dataUser }) => {
   const avatar = () => (
     <Col xs={{ span: 20, order: 2 }} md={{ span: 22, order: 2 }} lg={{ span: 10, order: 3 }}>
       <div className={styles.avatar}>
-        <img src="/src/assets/images/tanne.jpg" width="300px" height="300px" alt="" />
+        <Image width={300} src="/src/assets/images/tanne.jpg" />
       </div>
     </Col>
   );
@@ -68,11 +70,13 @@ const Intro = ({ dataUser }) => {
       <div className={styles.title}>
         <h1> Welcome</h1>
       </div>
+
       <Row>
         {socialNetwork()}
         {iam()}
         {avatar()}
       </Row>
+
       <Row>{scrollDown()}</Row>
     </div>
   );

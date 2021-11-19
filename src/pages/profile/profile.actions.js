@@ -2,7 +2,7 @@ import axios from 'axios';
 
 import { mockApiUrl } from 'common/constants';
 
-import { GET_USER_START, GET_USER_SUCCESS } from './home.constants';
+import { GET_USER_START, GET_USER_SUCCESS } from './profile.constants';
 
 const getUserStart = () => {
   return {
@@ -11,18 +11,18 @@ const getUserStart = () => {
   };
 };
 
-const getUserSuccess = (userData) => {
+const getUserSuccess = (usersData) => {
   return {
     type: GET_USER_SUCCESS,
-    payload: userData,
+    payload: usersData,
   };
 };
 
-export const getUser = (userId) => {
+export const getUsers = () => {
   return (dispatch) => {
     dispatch(getUserStart());
 
-    axios.get(`${mockApiUrl}/users/${userId}`).then((response) => {
+    axios.get(`${mockApiUrl}/users`).then((response) => {
       dispatch(getUserSuccess(response.data));
     });
   };

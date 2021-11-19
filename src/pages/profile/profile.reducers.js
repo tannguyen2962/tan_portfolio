@@ -1,11 +1,11 @@
-import { GET_USER_START, GET_USER_SUCCESS } from './home.constants';
+import { GET_USER_START, GET_USER_SUCCESS } from './profile.constants';
 
 const initialState = {
-  user: null,
+  users: null,
   isLoading: false,
 };
 
-const homeReducer = (state = initialState, action) => {
+const profileReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_USER_START: {
       return {
@@ -18,7 +18,7 @@ const homeReducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: false,
-        user: action.payload,
+        users: action.payload,
       };
     }
 
@@ -27,4 +27,4 @@ const homeReducer = (state = initialState, action) => {
   }
 };
 
-export default homeReducer;
+export default profileReducer;

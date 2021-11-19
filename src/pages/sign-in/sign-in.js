@@ -17,17 +17,17 @@ const SignIn = () => {
     dispatch(getUsers());
   }, []);
 
-  const handleSubmit = (value) => {
-    const { email, password } = value;
+  const handleSubmit = (formValues) => {
+    const { email, password } = formValues;
 
     const targetUser = dataUsers.find((user) => user.email === email && user.password === password);
 
     if (targetUser) {
-      message.success('success');
+      message.success('Login success');
       history.push('/dashboard');
       localStorage.setItem('targetUser', JSON.stringify(targetUser));
     } else {
-      message.error('failed');
+      message.error('Login Failed');
     }
   };
 

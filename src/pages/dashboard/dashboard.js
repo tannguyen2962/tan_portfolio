@@ -15,7 +15,7 @@ const DashBoard = () => {
   useEffect(() => {
     if (user) {
       message.success(`${user.name} has been updated`);
-      history.push('/');
+      history.push(`${user.username}`);
     }
   }, [user]);
 
@@ -30,7 +30,7 @@ const DashBoard = () => {
 
   return (
     <div className={styles.dashboard}>
-      <Form onFinish={handleSubmit} layout="vertical">
+      <Form onFinish={handleSubmit} layout="vertical" initialValues={targetUser}>
         <div className={styles.form}>
           <div className={styles.title}>
             <h1> DashBoard</h1>

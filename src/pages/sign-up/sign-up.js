@@ -17,7 +17,7 @@ const SignUp = () => {
 
   useEffect(() => {
     if (user) {
-      message.success(`${user.fullName} Sign Up Success`);
+      message.success(`${user.name} Sign Up Success`);
       history.push('/signIn');
     }
   }, [user]);
@@ -43,11 +43,13 @@ const SignUp = () => {
           <Form.Item name="renterPassword" label="Renter Password" rules={[{ required: true }]}>
             <Input.Password />
           </Form.Item>
-          <Form.Item name="fullName" label="Full Name" rules={[{ required: true }]}>
+          <Form.Item name="name" label="Name" rules={[{ required: true }]}>
+            <Input />
+          </Form.Item>
+          <Form.Item name="username" label="User Name" rules={[{ required: true }]}>
             <Input />
           </Form.Item>
           <Checkbox>
-            {' '}
             <span> I agree to the Privacy Policy</span>
           </Checkbox>
           <Form.Item>

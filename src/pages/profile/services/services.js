@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import SVG from 'react-inlinesvg';
 import cx from 'classnames';
 import axios from 'axios';
+import { mockApiUrl } from 'common/constants';
 import { Button, Card, Popover, Row, Col, message } from 'antd';
 
 import styles from './services.less';
@@ -10,7 +11,7 @@ const Services = () => {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    axios.get('https://614337aec8700e00178d01bb.mockapi.io/services').then((response) => {
+    axios.get(`${mockApiUrl}/services`).then((response) => {
       setItems(response.data);
     });
   }, []);
@@ -25,7 +26,7 @@ const Services = () => {
         cloneItem.price = price;
 
         axios
-          .put(`https://614337aec8700e00178d01bb.mockapi.io/services/${selectedItem.id}`, cloneItem)
+          .put(`${mockApiUrl}/services/${selectedItem.id}`, cloneItem)
           .then(() => {
             message.success('success');
           })
@@ -83,7 +84,6 @@ const Services = () => {
                             <p>Content</p>
                           </div>
                         }
-                        title="Front-End Developer"
                         trigger="click"
                       >
                         <Button>Edit </Button>
@@ -103,7 +103,7 @@ const Services = () => {
                       <p> Buy</p>
                     </Button>
                   </div>
-                </Card>{' '}
+                </Card>
               </div>
             </Col>
           );
