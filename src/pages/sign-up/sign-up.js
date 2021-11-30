@@ -1,34 +1,44 @@
 import React, { useEffect } from 'react';
-import { Form, Input, Button, message, Checkbox } from 'antd';
+import { Form, Input, Button, Checkbox, message } from 'antd';
 import { useHistory } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import { postUser } from './sign-up.action';
+import { useDispatch, useSelector } from 'react-redux';
+import { createUser } from './sign-up.action';
 
 import styles from './sign-up.less';
 
 const SignUp = () => {
   const history = useHistory();
+  const dispatch = useDispatch();
+  const { isCreateUserSuccess } = useSelector((state) => state.signUpReducer);
+
+  useEffect(() => {
+    if (isCreateUserSuccess) {
+      message.success('Sign Up Successfully');
+      history.push('/signIn');
+    }
+  }, [isCreateUserSuccess]);
+
   const toSignIn = () => {
     history.push('/signIn');
   };
 
-  const dispatch = useDispatch();
-  const { user } = useSelector((state) => state.signUpReducer);
-
-  useEffect(() => {
-    if (user) {
-      message.success(`${user.name} Sign Up Success`);
-      history.push('/signIn');
+  const handleFormSubmit = (formValues) => {
+    if (formValues.renterPassword !== formValues.password) {
+      message.error('Renter Password is not correct');
+      return;
     }
-  }, [user]);
 
-  const handleSubmit = (values) => {
-    dispatch(postUser(values));
+    if (!formValues.agreeWithThePrivacyPolicy) {
+      message.error('You need to agree with privacy policy');
+      return;
+    }
+
+    dispatch(createUser(formValues));
   };
 
   return (
     <div className={styles.signIn}>
-      <Form onFinish={handleSubmit} layout="vertical">
+      <Form onFinish={handleFormSubmit} layout="vertical">
         <div className={styles.form}>
           <div className={styles.title}>
             <h1>Sign Up</h1>
@@ -49,15 +59,18 @@ const SignUp = () => {
           <Form.Item name="username" label="User Name" rules={[{ required: true }]}>
             <Input />
           </Form.Item>
-          <Checkbox>
-            <span> I agree to the Privacy Policy</span>
-          </Checkbox>
+          <Form.Item name="agreeWithThePrivacyPolicy" valuePropName="checked">
+            <Checkbox>
+              <span> I agree to the Privacy Policy</span>
+            </Checkbox>
+          </Form.Item>
+
           <Form.Item>
             <div className={styles.button}>
               <Button type="primary" htmlType="submit">
                 Sign Up
               </Button>
-              <Button type="primary" onClick={toSignIn}>
+              <Button type="default" onClick={toSignIn}>
                 Sign In
               </Button>
             </div>

@@ -49,7 +49,7 @@ const Intro = ({ dataUser }) => {
   const avatar = () => (
     <Col xs={{ span: 20, order: 2 }} md={{ span: 22, order: 2 }} lg={{ span: 10, order: 3 }}>
       <div className={styles.avatar}>
-        <Image width={300} src="/src/assets/images/tanne.jpg" />
+        <Image width={300} src={`${dataUser?.imageUrl}`} />
       </div>
     </Col>
   );

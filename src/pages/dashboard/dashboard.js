@@ -8,7 +8,9 @@ import styles from './dashboard.less';
 
 const DashBoard = () => {
   const history = useHistory();
-  const targetUser = JSON.parse(localStorage.getItem('targetUser'));
+  const pureTargetUser = localStorage.getItem('targetUser');
+
+  const targetUser = JSON.parse(pureTargetUser);
   const dispatch = useDispatch();
   const { isLoading, user } = useSelector((state) => state.dashboardReducer);
 
@@ -48,6 +50,12 @@ const DashBoard = () => {
             <Input />
           </Form.Item>
           <Form.Item name="work" label="Work" rules={[{ required: true }]}>
+            <Input />
+          </Form.Item>
+          <Form.Item name="username" label="User Name" rules={[{ required: true }]}>
+            <Input />
+          </Form.Item>
+          <Form.Item name="imageUrl" label="ImageUrl" rules={[{ required: true }]}>
             <Input />
           </Form.Item>
           <Form.Item>

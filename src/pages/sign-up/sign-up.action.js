@@ -1,26 +1,26 @@
 import axios from 'axios';
 import { mockApiUrl } from 'common/constants';
-import { POST_USER_START, POST_USER_SUCCESS } from './sign-up.constants';
+import { CREATE_USER_START, CREATE_USER_SUCCESS } from './sign-up.constants';
 
-const postUserStart = () => {
+const createUserStart = () => {
   return {
-    type: POST_USER_START,
+    type: CREATE_USER_START,
     payload: null,
   };
 };
 
-const postUserSuccess = (dataSignUp) => {
+const createUserSuccess = (dataSignUp) => {
   return {
-    type: POST_USER_SUCCESS,
+    type: CREATE_USER_SUCCESS,
     payload: dataSignUp,
   };
 };
 
-export const postUser = (userData) => {
+export const createUser = (userData) => {
   return (dispatch) => {
-    dispatch(postUserStart());
+    dispatch(createUserStart());
     axios.post(`${mockApiUrl}/users/`, userData).then((response) => {
-      dispatch(postUserSuccess(response.data));
+      dispatch(createUserSuccess(response.data));
     });
   };
 };

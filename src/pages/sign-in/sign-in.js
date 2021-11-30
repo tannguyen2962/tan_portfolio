@@ -3,13 +3,12 @@ import { Input, Button, Form, message, Checkbox } from 'antd';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUsers } from './sign-in.actions';
+// import FacebookLogin from './facebook-login';
+import LoginWithGoogle from '../login-with-google/google-login';
 import styles from './sign-in.less';
 
 const SignIn = () => {
   const history = useHistory();
-  const toSignUp = () => {
-    history.push('/signUp');
-  };
   const dispatch = useDispatch();
   const { dataUsers } = useSelector((state) => state.signInReducer);
 
@@ -17,15 +16,20 @@ const SignIn = () => {
     dispatch(getUsers());
   }, []);
 
-  const handleSubmit = (formValues) => {
-    const { email, password } = formValues;
+  const toSignUp = () => {
+    history.push('/signUp');
+  };
 
-    const targetUser = dataUsers.find((user) => user.email === email && user.password === password);
+  const handleSubmit = async (formValues) => {
+    const { email, password } = formValues;
+    const targetUser = await dataUsers.find(
+      (user) => user.email === email && user.password === password
+    );
 
     if (targetUser) {
       message.success('Login success');
-      history.push('/dashboard');
       localStorage.setItem('targetUser', JSON.stringify(targetUser));
+      history.push('/dashboard');
     } else {
       message.error('Login Failed');
     }
@@ -45,9 +49,10 @@ const SignIn = () => {
             <Input.Password />
           </Form.Item>
           <Checkbox>
-            {' '}
             <span> I agree to the Privacy Policy</span>
           </Checkbox>
+          <LoginWithGoogle />
+
           <Form.Item>
             <div className={styles.button}>
               <Button type="primary" htmlType="submit">
