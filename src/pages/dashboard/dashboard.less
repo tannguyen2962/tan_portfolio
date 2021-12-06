@@ -1,6 +1,36 @@
 .dashboard {
-  width: 100vw;
-  height: 100vh;
+  overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+  background-image: url('/src/assets/images/background.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  .title {
+    padding-bottom: 10px;
+    text-align: center;
+    h1 {
+      font-weight: 900;
+      color: black;
+    }
+  }
+  div[class*='ant-col'] {
+    label {
+      color: black;
+    }
+  }
+  .form {
+    margin: auto;
+    margin-top: 50px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 20px;
+    width: 500px;
+  }
+}
+.backgroundFormAbout {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -8,26 +38,50 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  .title {
-    padding-bottom: 10px;
-    text-align: center;
-    h1 {
-      font-weight: 900;
-      color: white;
+  width: 100%;
+  height: 100vh;
+  .formAboutMe {
+    .titleAboutMe {
+      display: flex;
+      justify-content: center;
+      h1 {
+        font-weight: 900;
+        color: black;
+      }
     }
-  }
-  div[class*='ant-col'] {
-    label {
-      color: white;
-    }
-  }
-  .form {
-    border-radius: 10px;
-    background-color: transparent;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    padding: 20px;
+    border-radius: 20px;
+    background: white;
+    margin: auto;
     width: 500px;
-    height: auto;
+    padding: 20px;
+  }
+}
+
+.backgroundFormEducationWork {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('/src/assets/images/background.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  .educationWork {
+    .titleFormEducationWork {
+      display: flex;
+      justify-content: center;
+      h1 {
+        font-weight: 900;
+        color: black;
+      }
+    }
+
+    border-radius: 20px;
+    background: white;
+    margin: auto;
+    width: 500px;
+    padding: 20px;
+    margin-top: 20px;
   }
 }
 

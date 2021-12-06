@@ -26,7 +26,9 @@
     "react/forbid-prop-types": "off",
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "react/jsx-first-prop-new-line": [1, "multiline"],
+    "react/jsx-key": "error",
     "react/jsx-props-no-spreading": "off",
+    "react/no-array-index-key": "error",
     "react/prop-types": "off",
     "react/jsx-max-props-per-line": [
       "warn",

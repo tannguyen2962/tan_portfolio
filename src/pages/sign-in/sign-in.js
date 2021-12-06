@@ -3,7 +3,6 @@ import { Input, Button, Form, message, Checkbox } from 'antd';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUsers } from './sign-in.actions';
-// import FacebookLogin from './facebook-login';
 import LoginWithGoogle from '../login-with-google/google-login';
 import styles from './sign-in.less';
 

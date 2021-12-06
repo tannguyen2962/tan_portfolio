@@ -37,7 +37,7 @@ const Intro = ({ dataUser }) => {
           <h1>Hi I am </h1>
           <h1 className={styles.nameUser}>{dataUser?.name}</h1>
         </div>
-        <h2>{dataUser?.work}</h2>
+        <h2>{dataUser?.job}</h2>
         <p className={styles.description}>{dataUser?.des}</p>
         <Button className={styles.button} type="primary" icon={<DownloadOutlined />}>
           Contact Me <DownOutlined />

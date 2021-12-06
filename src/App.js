@@ -11,25 +11,23 @@ import './styles/base.less';
 
 const App = () => (
   <BrowserRouter>
-    <div>
-      <Switch>
-        <Route exact path="/signUp">
-          <SignUp />
-        </Route>
-        <Route exact path="/signIn">
-          <SignIn />
-        </Route>
-        <Route exact path="/dashboard">
-          <DashBoard />
-        </Route>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route exact path="/:username">
-          <Profile />
-        </Route>
-      </Switch>
-    </div>
+    <Switch>
+      <Route exact path="/signUp">
+        <SignUp />
+      </Route>
+      <Route exact path="/signIn">
+        <SignIn />
+      </Route>
+      <Route exact path="/dashboard">
+        <DashBoard />
+      </Route>
+      <Route exact path="/:username">
+        <Profile />
+      </Route>
+      <Route exact path="/">
+        <Home />
+      </Route>
+    </Switch>
   </BrowserRouter>
 );
 

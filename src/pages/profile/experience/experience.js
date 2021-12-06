@@ -1,12 +1,25 @@
-import React from 'react';
-import { Timeline, Tabs, Popover } from 'antd';
+import React, { useState, useEffect } from 'react';
+import { Timeline, Tabs } from 'antd';
 import { ClockCircleOutlined } from '@ant-design/icons';
+
+import axios from 'axios';
+import { mockApiUrl } from 'common/constants';
 import SVG from 'react-inlinesvg';
 import styles from './experience.less';
 
 const { TabPane } = Tabs;
 
 const Experience = () => {
+  const [dataExperience, setDataExperience] = useState();
+  const localTarget = localStorage.getItem('targetUser');
+  const targetUser = JSON.parse(localTarget);
+  useEffect(() => {
+    axios.get(`${mockApiUrl}/users`).then((response) => {
+      setDataExperience(response.data);
+    });
+  }, []);
+
+  const selectedUser = dataExperience?.find((user) => user.id === targetUser.id);
   const renderEducation = () => {
     const tabTitle = (
       <div className={styles.tabTitle}>
@@ -20,7 +33,7 @@ const Experience = () => {
         <Timeline mode="alternate">
           <Timeline.Item>
             <div className={styles.milestone}>
-              <p className={styles.content}>Create a services site</p>
+              <h3 className={styles.content}>{selectedUser?.education}</h3>
               <div className={styles.datetime}>
                 <SVG
                   src="/src/assets/svgs/calendar.svg"
@@ -28,24 +41,17 @@ const Experience = () => {
                   height="20px"
                   fill="#c91f37"
                 />
-                <span>2015-09-01</span>
+                <span>{selectedUser?.timeofeducation}</span>
               </div>
             </div>
           </Timeline.Item>
           <Timeline.Item color="green">
-            Solve initial network problems
-            <div> 2015-09-01</div>
+            <h3> {selectedUser?.education2}</h3>
+            <div> {selectedUser?.timeofeducation2}</div>
           </Timeline.Item>
           <Timeline.Item dot={<ClockCircleOutlined style={{ fontSize: '16px' }} />}>
-            Sed ut perspiciatis unde omnis iste natus error sit.
-          </Timeline.Item>
-          <Timeline.Item color="red">
-            Network problems being solved
-            <div> 2015-09-01</div>
-          </Timeline.Item>
-          <Timeline.Item>Create a services site 2015-09-01</Timeline.Item>
-          <Timeline.Item dot={<ClockCircleOutlined style={{ fontSize: '16px' }} />}>
-            Technical testing <div> 2015-09-01</div>
+            <h3> {selectedUser?.education3}</h3>
+            <div> {selectedUser?.timeofeducation3}</div>
           </Timeline.Item>
         </Timeline>
       </TabPane>
@@ -64,37 +70,19 @@ const Experience = () => {
       <TabPane tab={tabTitle} key="2" className={styles.work}>
         <Timeline mode="alternate">
           <Timeline.Item>
-            <p> Create a services site </p>
+            <h3> {selectedUser?.work1} </h3>
             <div className={styles.datetime}>
-              <Popover
-                content={
-                  <div>
-                    <input type="text" placeholder="new message" />
-                    <p>Content</p>
-                  </div>
-                }
-                trigger="click"
-              >
-                <SVG
-                  src="/src/assets/svgs/calendar.svg"
-                  width="20px"
-                  height="20px"
-                  fill="#c91f37"
-                />
-                <span> 2015-09-01</span>
-              </Popover>
+              <SVG src="/src/assets/svgs/calendar.svg" width="20px" height="20px" fill="#c91f37" />
+              <span> {selectedUser?.timeofwork}</span>
             </div>
           </Timeline.Item>
           <Timeline.Item color="green">
-            Solve initial network problems
-            <div> 2015-09-01</div>
+            <h3> {selectedUser?.work2}</h3>
+            <div> {selectedUser?.timeofwork}</div>
           </Timeline.Item>
           <Timeline.Item dot={<ClockCircleOutlined style={{ fontSize: '16px' }} />}>
-            Sed ut perspiciatis unde omnis iste natus error sit.
-          </Timeline.Item>
-          <Timeline.Item color="red">
-            Network problems being solved
-            <div> 2015-09-01</div>
+            <h3> {selectedUser?.work3}</h3>
+            <div> {selectedUser?.timeofwork3}</div>
           </Timeline.Item>
         </Timeline>
       </TabPane>

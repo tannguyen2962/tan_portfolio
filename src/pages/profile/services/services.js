@@ -18,26 +18,22 @@ const Services = () => {
 
   // @TODO: get services data from mockAPI and set to state
 
-  const updatePrice = (selectedItem, price) => {
+  const updateCard = (updatedItem) => {
     const updatedItems = items.map((item) => {
-      const cloneItem = item;
-
-      if (item.id === selectedItem.id) {
-        cloneItem.price = price;
-
-        axios
-          .put(`${mockApiUrl}/services/${selectedItem.id}`, cloneItem)
-          .then(() => {
-            message.success('success');
-          })
-          .catch((error) => {
-            message.error(error);
-          });
-
-        // @TODO: call axios.put to update service in mockAPI
+      if (item.id !== updatedItem.id) {
+        return item;
       }
 
-      return cloneItem;
+      axios
+        .put(`${mockApiUrl}/services/${updatedItem.id}`, updatedItem)
+        .then(() => {
+          message.success('success');
+        })
+        .catch((error) => {
+          message.error(error);
+        });
+
+      return updatedItem;
     });
 
     setItems(updatedItems);
@@ -45,6 +41,64 @@ const Services = () => {
 
   const selectedCardIndex = 1;
   const isLoginSuccess = localStorage.getItem('targetUser');
+
+  /**
+   * Render
+   */
+
+  const renderEditableServicePopover = (item) => {
+    if (!isLoginSuccess) {
+      return null;
+    }
+
+    const handlePriceBlur = (e) => {
+      updateCard({
+        ...item,
+        price: e.target.value,
+      });
+    };
+
+    const handleDescriptionOneBlur = (e) => {
+      updateCard({
+        ...item,
+        descriptionOne: e.target.value,
+      });
+    };
+
+    const handleDescriptionTwoBlur = (e) => {
+      updateCard({
+        ...item,
+        descriptionTwo: e.target.value,
+      });
+    };
+
+    const handleDescriptionThreeBlur = (e) => {
+      updateCard({
+        ...item,
+        descriptionThree: e.target.value,
+      });
+    };
+
+    return (
+      <Popover
+        content={
+          <div>
+            <input onBlur={handlePriceBlur} type="number" placeholder="/1 hours" />
+            <input onBlur={handleDescriptionOneBlur} type="text" placeholder="/DescriptionOne" />
+            <input onBlur={handleDescriptionTwoBlur} type="text" placeholder="/DescriptionTwo" />
+            <input
+              onBlur={handleDescriptionThreeBlur}
+              type="text"
+              placeholder="/DescriptionThree"
+            />
+          </div>
+        }
+        trigger="click"
+      >
+        <Button>Edit </Button>
+      </Popover>
+    );
+  };
 
   return (
     <div className={styles.services} id="service">
@@ -57,7 +111,7 @@ const Services = () => {
       <Row>
         {items.map((item, index) => {
           return (
-            <Col key={item.title} xs={24} md={24} lg={24} xl={8}>
+            <Col key={item.id} xs={24} md={24} lg={24} xl={8}>
               <div className={styles.padding}>
                 <Card
                   className={cx(styles.card, {
@@ -69,36 +123,16 @@ const Services = () => {
                       {item.title}
                     </>
                   }
-                  extra={
-                    isLoginSuccess && (
-                      <Popover
-                        content={
-                          <div>
-                            <input
-                              onBlur={(e) => {
-                                updatePrice(item, e.target.value);
-                              }}
-                              type="number"
-                              placeholder="/1 hours"
-                            />
-                            <p>Content</p>
-                          </div>
-                        }
-                        trigger="click"
-                      >
-                        <Button>Edit </Button>
-                      </Popover>
-                    )
-                  }
+                  extra={renderEditableServicePopover(item)}
                   style={{ width: 500 }}
                 >
                   <div className={styles.contentPricing}>
                     <h2>{item.price} / 1 hour </h2>
 
                     <span> I am available for full time</span>
-                    <span> {item.description1} </span>
-                    <span>{item.description2}</span>
-                    <span>{item.description3}</span>
+                    <span> {item.descriptionOne} </span>
+                    <span>{item.descriptionTwo}</span>
+                    <span>{item.descriptionThree}</span>
                     <Button type="@color-primary" shape="round">
                       <p> Buy</p>
                     </Button>
