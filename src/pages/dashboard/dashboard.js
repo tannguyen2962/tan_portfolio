@@ -52,6 +52,16 @@ const DashBoard = () => {
       })
     );
   };
+  // const handleSubmitProductPortfolio = (formValues) => {
+  //   dispatch(updateUser(targetUser.id, formValues));
+  //   localStorage.setItem(
+  //     'targetUser',
+  //     JSON.stringify({
+  //       ...targetUser,
+  //       ...formValues,
+  //     })
+  //   );
+  // };
 
   if (!targetUser) {
     history.push('/signIn');
@@ -87,6 +97,15 @@ const DashBoard = () => {
             <Form.Item name="imageUrl" label="ImageUrl" rules={[{ required: true }]}>
               <Input />
             </Form.Item>
+            <Form.Item name="urlFacebook" label="URL Facebook" rules={[{ required: true }]}>
+              <Input />
+            </Form.Item>
+            <Form.Item name="urlGithub" label="URL Github" rules={[{ required: true }]}>
+              <Input />
+            </Form.Item>
+            <Form.Item name="urlGmail" label="URL Gmail" rules={[{ required: true }]}>
+              <Input />
+            </Form.Item>
             <Form.Item>
               <Button type="primary" htmlType="submit" loading={isLoading}>
                 Submit
@@ -99,18 +118,6 @@ const DashBoard = () => {
   };
 
   const renderEducationWork = () => {
-    // const { timeofeducation2, ...restProps } = targetUser;
-
-    // if (!timeofeducation2) {
-    //   message.error('value not found');
-    // } else {
-    //   const initialValues = {
-    //     ...restProps,
-    //     timeofeducation2: [moment(timeofeducation2[0]), moment(timeofeducation2[1])],
-    //   };
-    //   return initialValues;
-    // }
-
     return (
       <div className={styles.backgroundFormEducationWork}>
         <div className={styles.educationWork}>
@@ -210,6 +217,68 @@ const DashBoard = () => {
     );
   };
 
+  // const renderProductPortfolio = () => {
+  //   return (
+  //     <div className={styles.backgroundProductPortfolio}>
+  //       <div className={styles.formProductPortfolio}>
+  //         <div className={styles.titleProductPortfolio}>
+  //           <h1>Product Portfolio</h1>
+  //         </div>
+  //         <Form
+  //           onFinish={handleSubmitProductPortfolio}
+  //           layout="vertical"
+  //           initialValues={targetUser}
+  //         >
+  //           <Form.Item name="title" label="Title" rules={[{ required: true }]}>
+  //             <Input />
+  //           </Form.Item>
+  //           <Form.Item
+  //             name="descriptionOfProduct"
+  //             label="Description of Product"
+  //             rules={[{ required: true }]}
+  //           >
+  //             <Input />
+  //           </Form.Item>
+  //           <Form.Item name="imageProduct" label="Image Product" rules={[{ required: true }]}>
+  //             <Input />
+  //           </Form.Item>
+  //           <Form.Item name="title2" label="Title 2" rules={[{ required: true }]}>
+  //             <Input />
+  //           </Form.Item>
+  //           <Form.Item
+  //             name="descriptionOfProduct2"
+  //             label="Description of Product 2"
+  //             rules={[{ required: true }]}
+  //           >
+  //             <Input />
+  //           </Form.Item>
+  //           <Form.Item name="imageProduct2" label="Image Product 2" rules={[{ required: true }]}>
+  //             <Input />
+  //           </Form.Item>
+  //           <Form.Item name="title3" label="Title 3" rules={[{ required: true }]}>
+  //             <Input />
+  //           </Form.Item>
+  //           <Form.Item
+  //             name="descriptionOfProduct3"
+  //             label="Description of Product 3"
+  //             rules={[{ required: true }]}
+  //           >
+  //             <Input />
+  //           </Form.Item>
+  //           <Form.Item name="imageProduct3" label="Image Product 3" rules={[{ required: true }]}>
+  //             <Input />
+  //           </Form.Item>
+  //           <Form.Item>
+  //             <Button type="primary" htmlType="submit">
+  //               Submit
+  //             </Button>
+  //           </Form.Item>
+  //         </Form>
+  //       </div>
+  //     </div>
+  //   );
+  // };
+
   return (
     <Tabs defaultActiveKey="1">
       <TabPane tab="User Profile" key="1">
@@ -221,6 +290,9 @@ const DashBoard = () => {
       <TabPane tab="Education  Work" key="3">
         {renderEducationWork()}
       </TabPane>
+      {/* <TabPane tab="Product Portfolio Work" key="4">
+        {renderProductPortfolio()}
+      </TabPane> */}
     </Tabs>
   );
 };

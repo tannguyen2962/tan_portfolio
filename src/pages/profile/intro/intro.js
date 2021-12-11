@@ -17,13 +17,13 @@ const Intro = ({ dataUser }) => {
   const socialNetwork = () => (
     <Col xs={{ span: 4, order: 1 }} md={{ span: 2, order: 1 }} lg={{ span: 6, order: 1 }}>
       <div className={styles.social}>
-        <a href=" https://www.facebook.com/tannnguyen2962" target="_blank">
+        <a href={dataUser?.urlFacebook}>
           <SVG src="/src/assets/svgs/facebook.svg" color="white" />
-        </a>{' '}
-        <a href=" https://www.facebook.com/tannnguyen2962" target="_blank">
+        </a>
+        <a href={dataUser?.urlGithub}>
           <SVG src="/src/assets/svgs/github.svg" />
         </a>
-        <a href=" https://tannguyen2962@gmail.com" target="_blank">
+        <a href={dataUser?.urlGmail}>
           <SVG src="/src/assets/svgs/mail.svg" />
         </a>
       </div>
@@ -68,7 +68,7 @@ const Intro = ({ dataUser }) => {
   return (
     <div className={styles.intro} id="intro">
       <div className={styles.title}>
-        <h1> Welcome</h1>
+        <h1> Welcome </h1>
       </div>
 
       <Row>

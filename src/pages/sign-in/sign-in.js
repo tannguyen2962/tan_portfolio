@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Input, Button, Form, message, Checkbox } from 'antd';
+import { Input, Button, Form, message } from 'antd';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUsers } from './sign-in.actions';
@@ -47,9 +47,7 @@ const SignIn = () => {
           <Form.Item name="password" label="Password" rule={[{ required: true }]}>
             <Input.Password />
           </Form.Item>
-          <Checkbox>
-            <span> I agree to the Privacy Policy</span>
-          </Checkbox>
+
           <LoginWithGoogle />
 
           <Form.Item>

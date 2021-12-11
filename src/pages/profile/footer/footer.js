@@ -11,7 +11,7 @@ const Footer = ({ dataUser }) => {
           <div className={styles.colElement}>
             <div className={styles.textElement}>
               <h1>{dataUser?.name}</h1>
-              <h3>{dataUser?.work}</h3>
+              <h3>{dataUser?.job}</h3>
             </div>
           </div>
         </Col>
