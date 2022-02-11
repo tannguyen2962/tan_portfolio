@@ -1,8 +1,13 @@
-import { UPDATE_USER_START, UPDATE_USER_SUCCESS } from './dashboard.constants';
+import {
+  UPDATE_USER_START,
+  UPDATE_USER_SUCCESS,
+  CLEAR_DASHBOARD_STATE,
+} from './dashboard.constants';
 
 const initialState = {
   user: null,
   isLoading: false,
+  isUpdateUserSuccess: false,
 };
 
 const dashboardReducer = (state = initialState, action) => {
@@ -11,6 +16,7 @@ const dashboardReducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: true,
+        isUpdateUserSuccess: false,
       };
     }
 
@@ -18,8 +24,13 @@ const dashboardReducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: false,
+        isUpdateUserSuccess: true,
         user: action.payload,
       };
+    }
+
+    case CLEAR_DASHBOARD_STATE: {
+      return initialState;
     }
 
     default:

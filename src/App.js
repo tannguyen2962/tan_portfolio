@@ -12,6 +12,9 @@ import './styles/base.less';
 const App = () => (
   <BrowserRouter>
     <Switch>
+      <Route exact path="/">
+        <Home />
+      </Route>
       <Route exact path="/signUp">
         <SignUp />
       </Route>
@@ -23,9 +26,6 @@ const App = () => (
       </Route>
       <Route exact path="/:username">
         <Profile />
-      </Route>
-      <Route exact path="/">
-        <Home />
       </Route>
     </Switch>
   </BrowserRouter>

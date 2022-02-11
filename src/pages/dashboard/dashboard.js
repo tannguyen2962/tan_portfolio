@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { Input, Button, Form, message, Tabs } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { updateUser } from './dashboard.actions';
+import { updateUser, clearDashboardState } from './dashboard.actions';
 
 import styles from './dashboard.less';
 
@@ -13,14 +13,25 @@ const DashBoard = () => {
   const pureTargetUser = localStorage.getItem('targetUser');
   const targetUser = JSON.parse(pureTargetUser);
   const dispatch = useDispatch();
-  const { isLoading, user } = useSelector((state) => state.dashboardReducer);
+  const { isLoading, user, isUpdateUserSuccess } = useSelector((state) => state.dashboardReducer);
 
   useEffect(() => {
-    if (user) {
+    // run on component mount
+
+    console.log('component is mount');
+
+    return () => {
+      console.log('component is unmount');
+      dispatch(clearDashboardState());
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isUpdateUserSuccess) {
       message.success(`${user.name} has been updated`);
       history.push(`${user.username}`);
     }
-  }, [user]);
+  }, [isUpdateUserSuccess]);
 
   const handleSubmitUserProfile = (formValues) => {
     dispatch(updateUser(targetUser.id, formValues));

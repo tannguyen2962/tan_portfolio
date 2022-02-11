@@ -2,7 +2,6 @@ import React from 'react';
 import { Button } from 'antd';
 import { CaretRightOutlined } from '@ant-design/icons';
 import { useHistory } from 'react-router-dom';
-
 import BackgroundSlideshow from 'react-background-slideshow';
 import image1 from '../../assets/images/bg1.jpg';
 import image2 from '../../assets/images/bg2.jpg';

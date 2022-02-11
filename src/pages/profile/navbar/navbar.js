@@ -33,6 +33,7 @@ const Navbar = () => {
           <li>
             <a href="#contact">Contact Me</a>
           </li>
+
           <li>
             <NavLink activeStyle={{ color: 'red' }} exact to="/signIn">
               <span>Sign In</span>
@@ -41,6 +42,11 @@ const Navbar = () => {
           <li>
             <NavLink activeStyle={{ color: 'red' }} exact to="/signUp">
               <span>Sign Up</span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink activeStyle={{ color: 'red' }} exact to="/dashboard">
+              <span>DashBoard</span>
             </NavLink>
           </li>
         </ul>
