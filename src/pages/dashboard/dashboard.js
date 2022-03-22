@@ -18,10 +18,7 @@ const DashBoard = () => {
   useEffect(() => {
     // run on component mount
 
-    console.log('component is mount');
-
     return () => {
-      console.log('component is unmount');
       dispatch(clearDashboardState());
     };
   }, []);
