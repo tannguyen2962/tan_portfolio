@@ -1,2 +1,2 @@
-line 1 confilict
-line 2 
+complete conflict
+
