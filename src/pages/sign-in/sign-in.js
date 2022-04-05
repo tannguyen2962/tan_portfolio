@@ -30,7 +30,7 @@ const SignIn = () => {
       localStorage.setItem('targetUser', JSON.stringify(targetUser));
       history.push('/dashboard');
     } else {
-      message.error('Login Failed please try it');
+      message.error('Login Failed please try it again');
     }
   };
 
