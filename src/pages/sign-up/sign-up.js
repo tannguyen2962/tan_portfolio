@@ -24,7 +24,7 @@ const SignUp = () => {
 
   const handleFormSubmit = (formValues) => {
     if (formValues.renterPassword !== formValues.password) {
-      message.error('Renter Password is not correct');
+      message.error('Renter Password is not correct try again');
       return;
     }
 
