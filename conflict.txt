@@ -1,1 +1,2 @@
 line 1 confilict
+line 2 
